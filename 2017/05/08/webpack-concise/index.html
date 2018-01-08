@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>配置webpack | lin凌</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="5分钟配置webpack雏形第一步：创建 packagenpm init -yes 第二步：下载wbepack, babel (注意webpack版本1，babel编译ES6,7等等)babelbabel-preset-env 文档，一个帮你配置Babel的preset npm install --save-dev babel-loader babel-core  babel-preset-env">
+<meta property="og:type" content="article">
+<meta property="og:title" content="配置webpack">
+<meta property="og:url" content="myywlc.github.io/2017/05/08/webpack-concise/index.html">
+<meta property="og:site_name" content="lin凌">
+<meta property="og:description" content="5分钟配置webpack雏形第一步：创建 packagenpm init -yes 第二步：下载wbepack, babel (注意webpack版本1，babel编译ES6,7等等)babelbabel-preset-env 文档，一个帮你配置Babel的preset npm install --save-dev babel-loader babel-core  babel-preset-env">
+<meta property="og:updated_time" content="2018-01-08T07:00:32.587Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="配置webpack">
+<meta name="twitter:description" content="5分钟配置webpack雏形第一步：创建 packagenpm init -yes 第二步：下载wbepack, babel (注意webpack版本1，babel编译ES6,7等等)babelbabel-preset-env 文档，一个帮你配置Babel的preset npm install --save-dev babel-loader babel-core  babel-preset-env">
+  
+    <link rel="alternate" href="/atom.xml" title="lin凌" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">lin凌</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Suche"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="myywlc.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-webpack-concise" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/05/08/webpack-concise/" class="article-date">
+  <time datetime="2017-05-08T08:26:36.000Z" itemprop="datePublished">2017-05-08</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      配置webpack
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="5分钟配置webpack雏形"><a href="#5分钟配置webpack雏形" class="headerlink" title="5分钟配置webpack雏形"></a>5分钟配置webpack雏形</h2><h4 id="第一步：创建-package"><a href="#第一步：创建-package" class="headerlink" title="第一步：创建 package"></a>第一步：创建 package</h4><pre><code>npm init -yes
+</code></pre><h4 id="第二步：下载wbepack-babel-注意webpack版本1，babel编译ES6-7等等"><a href="#第二步：下载wbepack-babel-注意webpack版本1，babel编译ES6-7等等" class="headerlink" title="第二步：下载wbepack, babel (注意webpack版本1，babel编译ES6,7等等)"></a>第二步：下载wbepack, babel (注意webpack版本1，babel编译ES6,7等等)</h4><p><a href="https://github.com/babel/babel-loader" target="_blank" rel="noopener">babel</a><br><a href="https://github.com/babel/babel-preset-env/blob/master/README.md" target="_blank" rel="noopener">babel-preset-env</a> 文档，一个帮你配置Babel的preset</p>
+<pre><code>npm install --save-dev babel-loader babel-core  babel-preset-env webpack@1
+</code></pre><h4 id="第三步：创建webpack-config-js配置config"><a href="#第三步：创建webpack-config-js配置config" class="headerlink" title="第三步：创建webpack.config.js配置config"></a>第三步：创建webpack.config.js配置config</h4><p>./webpack.config.js</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  entry: &#123;                       <span class="comment">// 编译入口配置</span></span><br><span class="line">    app: <span class="string">'./app/app.js'</span>          <span class="comment">// app/app.js 入口文件</span></span><br><span class="line">  &#125;,</span><br><span class="line">  output: &#123;                      <span class="comment">// 编译后输出配置</span></span><br><span class="line">    path: __dirname + <span class="string">'/dist'</span>,   <span class="comment">//__dirname指当前目录，生成./dist文件</span></span><br><span class="line">    filename: <span class="string">'[name].build.js'</span>,</span><br><span class="line">    publicPath: <span class="string">'/'</span>              <span class="comment">// 资源路径，如：css的背景图片等路径</span></span><br><span class="line">  &#125;,</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>然后在package.json中找到scripts添加</p>
+<pre><code>&quot;start&quot;: &quot;webpack --config webpack.config.js&quot;
+</code></pre><h4 id="第四部：启动命令"><a href="#第四部：启动命令" class="headerlink" title="第四部：启动命令"></a>第四部：启动命令</h4><pre><code>$ npm start
+</code></pre><p>好了，./dist/app.build.js 你可以看到了，编译成功。</p>
+<h4 id="第五步：使用babel编译js"><a href="#第五步：使用babel编译js" class="headerlink" title="第五步：使用babel编译js"></a>第五步：使用babel编译js</h4><pre><code># 对es6的支持
+$ npm install babel-preset-es2015 --save-dev
+
+# 如果你想用es7的功能
+$ npm install babel-preset-stage-0 --save-dev
+</code></pre><p>添加module到config<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line">output:&#123;..&#125;,</span><br><span class="line"><span class="built_in">module</span>: &#123;</span><br><span class="line">    loaders: [</span><br><span class="line">      &#123;</span><br><span class="line">        test: <span class="regexp">/\.js$/</span>,              <span class="comment">//如果jsx 就jsx</span></span><br><span class="line">        exclude: <span class="regexp">/node_modules/</span>,    <span class="comment">//禁止编译node_modules文件</span></span><br><span class="line">        loader: <span class="string">'babel-loader'</span>,     <span class="comment">//babel-loder</span></span><br><span class="line">        query: &#123;</span><br><span class="line">            presets: [<span class="string">'es2015'</span>, <span class="string">'stage-0'</span>, <span class="string">'env'</span>]  <span class="comment">//babel-preset-env</span></span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    ]</span><br><span class="line">  &#125;,</span><br><span class="line">...</span><br></pre></td></tr></table></figure></p>
+<p>好了，你的项目可以使用import, se6, es7等特性了。</p>
+<h4 id="创建html"><a href="#创建html" class="headerlink" title="创建html"></a>创建html</h4><p>创建html在你的 ./app/index.html</p>
+<pre><code>$ npm install html-webpack-plugin --save-dev
+</code></pre><p>使用<a href="https://github.com/jantimon/html-webpack-plugin" target="_blank" rel="noopener">html-webpack-plugin</a><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> HtmlWebpackPlugin = <span class="built_in">require</span>(<span class="string">'html-webpack-plugin'</span>);</span><br><span class="line"></span><br><span class="line">plugins: [</span><br><span class="line">    <span class="keyword">new</span> HtmlWebpackPlugin(&#123;</span><br><span class="line">      template: __dirname + <span class="string">'app/index.html'</span>, <span class="comment">//指向你的index.html</span></span><br><span class="line">      title: <span class="string">'Fuck!'</span>,  <span class="comment">//页面中通过&lt;%= htmlWebpackPlugin.options.title %&gt;使用 具体请看官方具体文档</span></span><br><span class="line">    &#125;)</span><br><span class="line">],</span><br></pre></td></tr></table></figure></p>
+<p>好了上面你就会在dist/index.html 查看到了。</p>
+<h4 id="还需要一个服务器"><a href="#还需要一个服务器" class="headerlink" title="还需要一个服务器"></a>还需要一个服务器</h4><p><a href="https://github.com/webpack/webpack-dev-server" target="_blank" rel="noopener">webpack-dev-server</a></p>
+<pre><code>$ npm install webpack-dev-server@1.16.3 --save-dev
+</code></pre><p>注意如果使用webpack1的版本，dev-server不能是2的版本不然会报错。</p>
+<p>添加devServer 到config里面，服务端口9000<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">devServer: &#123;</span><br><span class="line">    contentBase: __dirname + <span class="string">'dist'</span>,</span><br><span class="line">    compress: <span class="literal">true</span>,</span><br><span class="line">    port: <span class="number">9000</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<pre><code>$ webpack-dev-server --hot --inline
+
+[HMR] Waiting for update signal from WDS...
+[WDS] Hot Module Replacement enabled.
+</code></pre><p>你可以在在package.json 修改成这样</p>
+<pre><code>&quot;build&quot;: &quot;webpack --config webpack.config.js&quot;,
+&quot;start&quot;: &quot;webpack-dev-server --hot --inline --config webpack.config.js NODE_ENV=development&quot;
+</code></pre><p>你就可以通过, 构建项目的命令了。</p>
+<pre><code>$ npm start
+$ npm build
+</code></pre><p>命令添加 <code>NODE_ENV=development</code> 来给项目添加开发环境</p>
+<p>到这就差不多可以跑通了，更多的细节大家还是去看git上面比较好的项目配置。一般找一些react的项目看看就可以了。</p>
+<hr>
+<p>你更新文件就会自动刷新页面，但是是强刷。（难玩这东西）</p>
+<p>如果你对dev-server有问题看看下面翻译的这篇文章吧<br><a href="http://www.jianshu.com/p/941bfaf13be1" target="_blank" rel="noopener">http://www.jianshu.com/p/941bfaf13be1</a></p>
+<p>react hot解决了上面的问题，实现了hot<br><a href="https://github.com/gaearon/react-hot-loader/blob/master/docs/Troubleshooting.md" target="_blank" rel="noopener">https://github.com/gaearon/react-hot-loader/blob/master/docs/Troubleshooting.md</a></p>
+<p>如果你没用react-hot 可以使用 <a href="https://github.com/loggur/webpack-module-hot-accept" target="_blank" rel="noopener">webpack-module-hot-accept</a></p>
+<p>但是webpack2 还是需要</p>
+<hr>
+<p>如果你的css中字体路径失效看这里（我使用url-loader也遇到过）<br><a href="http://stackoverflow.com/questions/34133808/webpack-ots-parsing-error-loading-fonts/34133809#34133809" target="_blank" rel="noopener">http://stackoverflow.com/questions/34133808/webpack-ots-parsing-error-loading-fonts/34133809#34133809</a></p>
+<p>更多的xxx-loader,sass, img, font等大家自己去看文档吧，相对简单。</p>
+<hr>
+<p>觉得不错的webapck优化</p>
+<p><a href="https://juejin.im/entry/57996222128fe1005411c649" target="_blank" rel="noopener">彻底解决 Webpack 打包性能问题</a><br><a href="https://github.com/hawx1993/tech-blog/issues/3" target="_blank" rel="noopener">webpack打包分析与性能优化</a><br><a href="https://zhuanlan.zhihu.com/p/21318102" target="_blank" rel="noopener">webpack 进阶</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="myywlc.github.io/2017/05/08/webpack-concise/" data-id="cjc5uz5s60000yk5nz88ilq00" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/01/04/hello-world/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Neuer</strong>
+      <div class="article-nav-title">
+        
+          Hello World
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/04/16/regular-expression/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Älter</strong>
+      <div class="article-nav-title">regular-expression</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archiv</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">letzter Beitrag</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/01/08/eslint/">Eslint的基本使用</a>
+          </li>
+        
+          <li>
+            <a href="/2018/01/04/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2017/05/08/webpack-concise/">配置webpack</a>
+          </li>
+        
+          <li>
+            <a href="/2017/04/16/regular-expression/">regular-expression</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/15/common-css/">常用的CSS</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 姜凌<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
