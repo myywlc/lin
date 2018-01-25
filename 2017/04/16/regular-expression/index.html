@@ -55,7 +55,7 @@
         
           <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Suche"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="myywlc.github.io"></form>
@@ -109,7 +109,7 @@
 <h2 id="文件路径及扩展名校验"><a href="#文件路径及扩展名校验" class="headerlink" title="文件路径及扩展名校验"></a>文件路径及扩展名校验</h2><h4 id="验证windows下文件路径和扩展名（下面的例子中为-txt文件）"><a href="#验证windows下文件路径和扩展名（下面的例子中为-txt文件）" class="headerlink" title="验证windows下文件路径和扩展名（下面的例子中为.txt文件）"></a>验证windows下文件路径和扩展名（下面的例子中为.txt文件）</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">^([a-zA-Z]\\:|\\\\)\\\\([^\\\\]+\\\\)*[^\\/:*?<span class="string">"&lt;&gt;|]+\\.txt(l)?$</span></span><br></pre></td></tr></table></figure>
 <h2 id="提取Color-Hex-Codes"><a href="#提取Color-Hex-Codes" class="headerlink" title="提取Color Hex Codes"></a>提取Color Hex Codes</h2><h4 id="有时需要抽取网页中的颜色代码，可以使用下面的表达式"><a href="#有时需要抽取网页中的颜色代码，可以使用下面的表达式" class="headerlink" title="有时需要抽取网页中的颜色代码，可以使用下面的表达式"></a>有时需要抽取网页中的颜色代码，可以使用下面的表达式</h4><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">^#([A-Fa-f0-9]&#123;6&#125;|[A-Fa-f0-9]&#123;3&#125;)$</span><br></pre></td></tr></table></figure>
 <h2 id="提取网页图片"><a href="#提取网页图片" class="headerlink" title="提取网页图片"></a>提取网页图片</h2><h4 id="假若你想提取网页中所有图片信息，可以利用下面的表达式"><a href="#假若你想提取网页中所有图片信息，可以利用下面的表达式" class="headerlink" title="假若你想提取网页中所有图片信息，可以利用下面的表达式"></a>假若你想提取网页中所有图片信息，可以利用下面的表达式</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">\\&lt; *[img][^\\\\&gt;]*[src] *= *[\\<span class="string">"\\']&#123;0,1&#125;([^\\"</span>\\<span class="string">'\\ &gt;]*)</span></span><br></pre></td></tr></table></figure>
-<h2 id="提取页面超链接"><a href="#提取页面超链接" class="headerlink" title="提取页面超链接"></a>提取页面超链接</h2><h4 id="提取html中的超链接"><a href="#提取html中的超链接" class="headerlink" title="提取html中的超链接"></a>提取html中的超链接</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(&lt;a\\s*(?!.*\\brel=)[^&gt;]*)(href="https?:\\/\\/)((?!(?:(?:www\\.)?'.implode('|(?:www\\.)?', $follow_list).'))[^"]+)"((?!.*\\brel=)[^&gt;]*)(?:[^&gt;]*)&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="提取页面超链接"><a href="#提取页面超链接" class="headerlink" title="提取页面超链接"></a>提取页面超链接</h2><h4 id="提取html中的超链接"><a href="#提取html中的超链接" class="headerlink" title="提取html中的超链接"></a>提取html中的超链接</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(<span class="xml"><span class="tag">&lt;<span class="name">a\\s*(?!.*\\brel=)[^</span>&gt;</span>]*)(href="https?:\\/\\/)((?!(?:(?:www\\.)?'.implode('|(?:www\\.)?', $follow_list).'))[^"]+)"((?!.*\\brel=)[^&gt;]*)(?:[^&gt;]*)&gt;</span></span><br></pre></td></tr></table></figure>
 <h2 id="查找CSS属性"><a href="#查找CSS属性" class="headerlink" title="查找CSS属性"></a>查找CSS属性</h2><h4 id="通过下面的表达式，可以搜索到相匹配的CSS属性"><a href="#通过下面的表达式，可以搜索到相匹配的CSS属性" class="headerlink" title="通过下面的表达式，可以搜索到相匹配的CSS属性"></a>通过下面的表达式，可以搜索到相匹配的CSS属性</h4><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">^\\s*[a-zA-Z\\-]+\\s*[:]&#123;1&#125;\\s[a-zA-Z0-9\\s.#]+[;]&#123;1&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="抽取注释"><a href="#抽取注释" class="headerlink" title="抽取注释"></a>抽取注释</h2><h4 id="如果你需要移除HMTL中的注释，可以使用如下的表达式"><a href="#如果你需要移除HMTL中的注释，可以使用如下的表达式" class="headerlink" title="如果你需要移除HMTL中的注释，可以使用如下的表达式"></a>如果你需要移除HMTL中的注释，可以使用如下的表达式</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--(.*?)--&gt;</span><br></pre></td></tr></table></figure>
 <h2 id="匹配HTML标签"><a href="#匹配HTML标签" class="headerlink" title="匹配HTML标签"></a>匹配HTML标签</h2><h4 id="通过下面的表达式可以匹配出HTML中的标签属性"><a href="#通过下面的表达式可以匹配出HTML中的标签属性" class="headerlink" title="通过下面的表达式可以匹配出HTML中的标签属性"></a>通过下面的表达式可以匹配出HTML中的标签属性</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;\\/?\\w+((\\s+\\w+(\\s*=\\s*(?:<span class="string">".*?"</span>|<span class="string">'.*?'</span>|[\\^<span class="string">'"&gt;\\s]+))?)+\\s*|\\s*)\\/?&gt;</span></span><br></pre></td></tr></table></figure>
@@ -117,7 +117,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="myywlc.github.io/2017/04/16/regular-expression/" data-id="cjctzyybl000knk5n4can5a2f" class="article-share-link">Share</a>
+      <a data-url="myywlc.github.io/2017/04/16/regular-expression/" data-id="cjcu1lk9o000hzg5n2z5o6hmr" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/正则/">正则</a></li></ul>
@@ -129,7 +129,7 @@
 <nav id="article-nav">
   
     <a href="/2017/05/08/webpack-concise/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
+      <strong class="article-nav-caption">Neuer</strong>
       <div class="article-nav-title">
         
           配置webpack
@@ -139,7 +139,7 @@
   
   
     <a href="/2017/03/15/common-css/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
+      <strong class="article-nav-caption">Älter</strong>
       <div class="article-nav-title">常用的CSS</div>
     </a>
   
@@ -176,7 +176,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
+    <h3 class="widget-title">Archiv</h3>
     <div class="widget">
       <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li></ul>
     </div>
@@ -186,7 +186,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
+    <h3 class="widget-title">letzter Beitrag</h3>
     <div class="widget">
       <ul>
         
